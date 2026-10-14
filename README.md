@@ -42,6 +42,7 @@ driver/                  RealSense 驱动(可入库的部分)
   RealSense.Viewer.exe    免安装单文件 Viewer(18.9MB), 装 SDK 前先双击它验机
   test_d435.py            连通性自检: 枚举相机 + 拍彩图 + 深度统计
   -- 官方完整 SDK 安装包(116MB, 超 GitHub 单文件 100MB 限制)在 Releases 里下载 --
+     直链: https://github.com/OuO-s/camera/releases/download/v1.0-driver/D435_SDK_v2.58.4_Windows.zip
 docs/
   部署指南.md             在一台新电脑上从零部署(装驱动 → 建 venv → 起服务 → 验链路)
   上传与发布说明.md       本仓库怎么建/怎么推、驱动怎么发 Release

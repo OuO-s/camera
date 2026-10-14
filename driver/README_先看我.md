@@ -1,6 +1,8 @@
 > **从哪下载**：官方完整安装包 `RealSense.SDK-WIN10-2.58.4.10922.exe`（116MB）在本仓库的
 > **Releases** 页面下载（GitHub 单文件上限 100MB，所以没进 git）：
-> <https://github.com/OuO-s/camera/releases>
+> - Release 页面：<https://github.com/OuO-s/camera/releases/tag/v1.0-driver>
+> - 直链（整包 zip，含安装包 + Viewer + 自检脚本）：<https://github.com/OuO-s/camera/releases/download/v1.0-driver/D435_SDK_v2.58.4_Windows.zip>
+>
 > 本目录已放**免安装单文件 Viewer** 与自检脚本，装 SDK 前可以先双击 Viewer 验机。
 # D435 相机 SDK 包(Windows x64)
 
