@@ -1,0 +1,5 @@
+# 电脑(Windows)侧相机服务依赖 —— 与现场实测版本一致(2026-10)
+pyrealsense2==2.58.4
+numpy>=2.0
+opencv-python>=4.10
+websockets>=13,<16

@@ -1,0 +1,9 @@
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+snapshots/
+*.log
+.run_*/
+.DS_Store
+Thumbs.db

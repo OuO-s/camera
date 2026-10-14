@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="color-scheme" content="dark" />
+  <title>双路 USB 相机检查台</title>
+  <link rel="stylesheet" href="./styles.css" />
+</head>
+<body>
+  <div class="scanlines" aria-hidden="true"></div>
+  <main class="console-shell">
+    <header class="masthead">
+      <div class="brand-block">
+        <span class="eyebrow">OPTICAL INPUT / REALSENSE SDK DIAGNOSTIC</span>
+        <h1>双路相机检查台</h1>
+        <p>通过 Intel RealSense SDK 按序列号读取两台 D435；画面仅在本机传输，不上传、不录制。</p>
+      </div>
+      <div class="system-state" id="systemState" data-state="idle">
+        <span class="pulse"></span>
+        <div>
+          <small>系统状态</small>
+          <strong id="systemStateText">等待授权</strong>
+        </div>
+      </div>
+    </header>
+
+    <section class="toolbar" aria-label="相机操作">
+      <button class="primary-action" id="startButton" type="button">
+        <span class="button-index">01</span>
+        <span>检测并启动双摄</span>
+      </button>
+      <button class="tool-button" id="refreshButton" type="button" disabled>刷新设备</button>
+      <button class="tool-button" id="swapButton" type="button" disabled>交换画面</button>
+      <div class="device-count">
+        <span>已发现视频设备</span>
+        <strong id="deviceCount">—</strong>
+      </div>
+    </section>
+
+    <section class="alert" id="alertPanel" hidden aria-live="polite">
+      <strong id="alertTitle">提示</strong>
+      <span id="alertText"></span>
+    </section>
+
+    <section class="camera-grid">
+      <article class="camera-panel" id="panelA">
+        <header class="panel-head">
+          <div>
+            <span class="channel">CHANNEL A</span>
+            <h2>相机 A</h2>
+          </div>
+          <span class="feed-state" id="stateA">未启动</span>
+        </header>
+        <div class="viewport">
+          <video id="videoA" autoplay playsinline muted hidden></video>
+          <img class="sdk-feed" id="imageA" alt="左路 D435 实时画面" hidden />
+          <div class="empty-feed" id="emptyA">
+            <span class="reticle"></span>
+            <p>等待视频信号</p>
+          </div>
+          <div class="frame-corners" aria-hidden="true"></div>
+          <span class="live-badge" id="liveA" hidden><i></i> LIVE</span>
+          <button class="snapshot" id="shotA" type="button" disabled>截取画面</button>
+        </div>
+        <footer class="panel-foot">
+          <label for="selectA">视频输入</label>
+          <select id="selectA" disabled><option>等待设备授权</option></select>
+          <div class="metrics">
+            <span id="resolutionA">— × —</span>
+            <span id="fpsA">— FPS</span>
+          </div>
+        </footer>
+      </article>
+
+      <article class="camera-panel" id="panelB">
+        <header class="panel-head">
+          <div>
+            <span class="channel">CHANNEL B</span>
+            <h2>相机 B</h2>
+          </div>
+          <span class="feed-state" id="stateB">未启动</span>
+        </header>
+        <div class="viewport">
+          <video id="videoB" autoplay playsinline muted hidden></video>
+          <img class="sdk-feed" id="imageB" alt="右路 D435 实时画面" hidden />
+          <div class="empty-feed" id="emptyB">
+            <span class="reticle"></span>
+            <p>等待视频信号</p>
+          </div>
+          <div class="frame-corners" aria-hidden="true"></div>
+          <span class="live-badge" id="liveB" hidden><i></i> LIVE</span>
+          <button class="snapshot" id="shotB" type="button" disabled>截取画面</button>
+        </div>
+        <footer class="panel-foot">
+          <label for="selectB">视频输入</label>
+          <select id="selectB" disabled><option>等待设备授权</option></select>
+          <div class="metrics">
+            <span id="resolutionB">— × —</span>
+            <span id="fpsB">— FPS</span>
+          </div>
+        </footer>
+      </article>
+    </section>
+
+    <footer class="diagnostic-strip">
+      <span>RealSense SDK：<strong id="sdkState">检测中</strong></span>
+      <span>设备热插拔：<strong>自动监听</strong></span>
+      <span>数据路径：<strong>仅本机</strong></span>
+      <span class="clock" id="clock">--:--:--</span>
+    </footer>
+  </main>
+
+  <canvas id="snapshotCanvas" hidden></canvas>
+  <script src="./app.js"></script>
+</body>
+</html>
